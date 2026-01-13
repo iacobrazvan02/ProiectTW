@@ -1,0 +1,19 @@
+🚀 Serverul merge pe http://localhost:5001 si e legat la DB!
+Tabelele au fost inițializate
+Coloane alimente detectate: [
+  'disponibil',
+  'categorie_id',
+  'data_expirare',
+  'id',
+  'cantitate_nr',
+  'pret_per_kg',
+  'nume'
+]
+POST /adauga body: {
+  nume: 'pui',
+  descriere: '',
+  categorie: 'Carne',
+  cantitate_nr: '20',
+  pret_per_kg: '24',
+  data_expirare: '2026-01-25T00:00:00'
+}
