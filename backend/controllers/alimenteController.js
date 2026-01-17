@@ -12,6 +12,7 @@ const Claim = require('../models/Claim');
 /**
  * Listează toate alimentele
  */
+console.log('--- [DEBUG] ALIMENTE CONTROLLER LOADED (Price Persist Fix v1) ---');
 const getAlimente = async (req, res) => {
     try {
         const alimente = await Aliment.findAll({
@@ -102,10 +103,8 @@ const toggleOfera = async (req, res) => {
             if (typeof descriere !== 'undefined') {
                 aliment.descriere = descriere;
             } else if (disponibil === false) {
-                // Dacă oferta este retrasă și nu s-a trimis o descriere,
-                // curățăm detaliile ofertei și prețul afișat.
-                aliment.descriere = null;
-                aliment.pret_per_kg = null;
+                // Dacă oferta este retrasă, nu mai ștergem detaliile (preț/descriere)
+                // pentru a rămâne vizibile în interfață.
             }
         }
 

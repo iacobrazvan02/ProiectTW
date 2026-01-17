@@ -3,7 +3,7 @@
  * @module services/api
  */
 
-const API_BASE = 'http://localhost:5001';
+const API_BASE = 'https://proiecttw-d1fe.onrender.com';
 
 /**
  * Funcție helper pentru request-uri fetch

@@ -328,8 +328,11 @@ const Dashboard = () => {
         const text = `🥬 Ofer GRATUIT: ${item.nume}\n📅 Expiră: ${item.data_expirare ? item.data_expirare.split('T')[0] : 'N/A'}\n📦 Cantitate: ${item.cantitate_nr ? item.cantitate_nr + ' kg' : 'disponibil'}\n\n#AntiRisipa #GreenShelf #ZeroWaste #FoodSharing`;
 
         if (platform === 'facebook') {
-            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text);
+            }
+            window.open('https://www.facebook.com/', '_blank');
+            alert('✅ Textul a fost copiat!\n\n1. Facebook s-a deschis într-un tab nou\n2. Creează o postare\n3. Lipește textul copiat (Ctrl+V / Cmd+V)');
         } else if (platform === 'instagram') {
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(text);
